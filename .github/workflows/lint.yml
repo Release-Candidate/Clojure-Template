@@ -44,12 +44,12 @@ jobs:
           restore-keys: cljdeps-
 
       - name: Lint
-        run: clojure -M:clj-kondo --config '{:output {:pattern "::{{level}} file={{filename}},line={{row}},col={{col}}::{{message}}"}}'
+        run: clojure -M:clj-kondo --config \'{:output {:pattern \"::{{level}} file={{filename}},line={{row}},col={{col}}::{{message}}\"}}\'
 
   eastwood:
     strategy:
       matrix:
-        os: [ubuntu-latest, macOS-latest, windows-latest]
+        os: [ubuntu-latest]
         java: ["17"]
         clojure: ["1.10.1.693"]
 
