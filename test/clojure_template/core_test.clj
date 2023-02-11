@@ -14,7 +14,7 @@
 
 
 (t/defexpect a-test
-  (t/expect 10 (clojure-template.core/hugo 5)))
+  (t/expect 10 (clojure-template.core/hugo 5) "This should fail 1"))
 
 (t/defexpect b-test
-  (t/expect 10 (my/hugo 6)))
+  (t/expect 10 (my/hugo 6) "This should fail 2"))

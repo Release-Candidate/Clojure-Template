@@ -13,7 +13,7 @@
    [expectations.clojure.test :as t]))
 
 (t/defexpect c-test
-  (t/expect 10 (my/hugo 5)))
+  (t/expect 10 (my/hugo 5) "This should fail 3"))
 
 (t/defexpect d-test
-  (t/expect 10 (my/hugo 6)))
+  (t/expect 10 (my/hugo 6) "This should fail 4"))

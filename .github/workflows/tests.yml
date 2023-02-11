@@ -51,7 +51,7 @@ jobs:
         if: always()
         with:
           files: test.xml
-          check_name: Test Results ${{ matrix.os }}
+          check_name: Test Results ${{ matrix.os }} Java ${{ matrix.java}} Clojure ${{ matrix.clojure }}
 
   coverage:
     strategy:
