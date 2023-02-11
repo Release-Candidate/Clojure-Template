@@ -51,6 +51,7 @@ jobs:
         if: always()
         with:
           files: test.xml
+          check-name: Test Results ${{ matrix.os }}
 
   coverage:
     strategy:
