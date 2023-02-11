@@ -1,0 +1,35 @@
+{:paths   ["src"]
+ :deps    {}
+ :aliases {:test {:extra-paths ["test"]
+                  :extra-deps  {org.clojure/clojure {:mvn/version "1.11.1"}
+                                org.clojure/test.check      {:mvn/version "1.1.1"}
+                                eftest/eftest               {:mvn/version "0.6.0"}
+                                pjstadig/humane-test-output {:mvn/version "0.11.0"}
+                                expectations/clojure-test   {:mvn/version "1.2.1"}}
+                  :main-opts   ["-e"  "(require,'[eftest.runner,:refer,[find-tests,run-tests]]),(run-tests,(find-tests,\"test\"))"]}
+           :coverage {:extra-paths ["test"]
+                      :extra-deps  {org.clojure/clojure {:mvn/version "1.11.1"}
+                                    org.clojure/test.check      {:mvn/version "1.1.1"}
+                                    eftest/eftest               {:mvn/version "0.6.0"}
+                                    pjstadig/humane-test-output {:mvn/version "0.11.0"}
+                                    expectations/clojure-test   {:mvn/version "1.2.1"}
+                                    cloverage/cloverage         {:mvn/version "1.2.4"}}
+                      :exec-fn     cloverage.coverage/run-project
+                      :exec-args   {:test-ns-path ["test"]
+                                    :src-ns-path  ["src"]
+                                    :lcov?        true
+                                    :runner       :eftest
+                                    :runner-opts  {:fail-fast? false}}}
+           :codecov {:extra-paths ["test"]
+                     :extra-deps  {org.clojure/clojure {:mvn/version "1.11.1"}
+                                   org.clojure/test.check      {:mvn/version "1.1.1"}
+                                   eftest/eftest               {:mvn/version "0.6.0"}
+                                   pjstadig/humane-test-output {:mvn/version "0.11.0"}
+                                   expectations/clojure-test   {:mvn/version "1.2.1"}
+                                   cloverage/cloverage         {:mvn/version "1.2.4"}}
+                     :exec-fn     cloverage.coverage/run-project
+                     :exec-args   {:test-ns-path ["test"]
+                                   :src-ns-path  ["src"]
+                                   :codecov?     true
+                                   :runner       :eftest
+                                   :runner-opts  {:fail-fast? false}}}}}
