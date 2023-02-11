@@ -30,7 +30,7 @@ jobs:
       - name: Setup Clojure
         uses: DeLaGuardo/setup-clojure@10.1
         with:
-          cli: ${{ matrix.clojure }}
+          cli: 1.10.1.693
 
       - name: Cache Clojure
         uses: actions/cache@v3
