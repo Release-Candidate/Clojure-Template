@@ -13,7 +13,7 @@
    [expectations.clojure.test :as t]))
 
 (t/defexpect a-test
-  (t/expect 10 (my/hugo 5)))
+  (t/expect 10 (clojure-template.core/hugo 5)))
 
 (t/defexpect b-test
   (t/expect 10 (my/hugo 6)))

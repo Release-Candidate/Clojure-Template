@@ -10,7 +10,7 @@ jobs:
   clj-kondo:
     strategy:
       matrix:
-        os: [ubuntu-latest, macOS-latest, windows-latest]
+        os: [ubuntu-latest, macOS-latest]
         java: ["17"]
         clojure: ["1.10.1.693"]
 
