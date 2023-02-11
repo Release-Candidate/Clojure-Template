@@ -7,14 +7,13 @@
 ;;
 ;; ==============================================================================
 
-(ns clojure-template.core-test
+(ns clojure-template.core-test2
   (:require
    [clojure-template.core :as my]
    [expectations.clojure.test :as t]))
 
+(t/defexpect c-test
+  (t/expect 10 (my/hugo 5)))
 
-(t/defexpect a-test
-  (t/expect 10 (clojure-template.core/hugo 5)))
-
-(t/defexpect b-test
+(t/defexpect d-test
   (t/expect 10 (my/hugo 6)))
