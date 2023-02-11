@@ -22,7 +22,7 @@ jobs:
       - name: Lint clj-Kondo
         uses: DeLaGuardo/clojure-lint-action@master
         with:
-          clj-kondo-args: --lint src
+          clj-kondo-args: --lint src test
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
   eastwood:
