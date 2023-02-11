@@ -1,5 +1,8 @@
 (ns clojure-template.runner
-  (:require [eftest.runner :as ef]))
+  (:require
+   [eftest.report :as efr]
+   [eftest.report.junit :as efju]
+   [eftest.runner :as ef]))
 
 (set! *warn-on-reflection* true)
 
@@ -8,5 +11,5 @@
    Run the eftest test runner and return the number of failed tests."
   [_]
   (let  [{num-fail :fail  num-error :error}
-         (ef/run-tests (ef/find-tests "./"))]
+         (ef/run-tests (ef/find-tests "./") {:report (efr/report-to-file efju/report "test.xml")})]
     (System/exit (+ num-error num-fail))))

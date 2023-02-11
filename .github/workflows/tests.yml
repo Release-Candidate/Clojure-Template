@@ -45,3 +45,10 @@ jobs:
 
       - name: Run Tests
         run: clojure -X:test
+
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          files: |
+            test/test.xml

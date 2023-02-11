@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites><testsuite name="core-test" package="clojure-template"><testcase name="b-test" classname="clojure-template.core-test" time="0,003"><failure>expected: (t/expect 10 (my/hugo 6))
+  actual: false
+      at: core_test.clj:19</failure>
+<failure message="">
+expected: 10
+  actual: [12]
+      at: core_test.clj:20</failure>
+</testcase><testcase name="a-test" classname="clojure-template.core-test" time="0,003"><failure>expected: (t/expect 10 (clojure-template.core/hugo 5))
+  actual: false
+      at: core_test.clj:16</failure>
+<failure message="">
+expected: 10
+  actual: [11]
+      at: core_test.clj:17</failure>
+</testcase></testsuite><testsuite name="core-test2" package="clojure-template"><testcase name="d-test" classname="clojure-template.core-test2" time="0,003"><failure>expected: (t/expect 10 (my/hugo 6))
+  actual: false
+      at: core_test2.clj:18</failure>
+<failure message="">
+expected: 10
+  actual: [12]
+      at: core_test2.clj:19</failure>
+</testcase><testcase name="c-test" classname="clojure-template.core-test2" time="0,003"><failure>expected: (t/expect 10 (my/hugo 5))
+  actual: false
+      at: core_test2.clj:15</failure>
+<failure message="">
+expected: 10
+  actual: [11]
+      at: core_test2.clj:16</failure>
+</testcase></testsuite></testsuites>
