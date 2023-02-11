@@ -1,6 +1,8 @@
 # CLOJURE-TEMPLATE
 
 [![GitHub](https://img.shields.io/github/license/Release-Candidate/clojure-template)](./LICENSE)
+[![Lint](https://github.com/Release-Candidate/Clojure-Template/actions/workflows/lint.yml/badge.svg)](https://github.com/Release-Candidate/Clojure-Template/actions/workflows/lint.yml)
+[![Test](https://github.com/Release-Candidate/Clojure-Template/actions/workflows/tests.yml/badge.svg)](https://github.com/Release-Candidate/Clojure-Template/actions/workflows/tests.yml)
 [![Codecov](https://img.shields.io/codecov/c/github/Release-Candidate/clojure-template)](https://app.codecov.io/gh/Release-Candidate/Clojure-Template)
 
 A template for Clojure projects with GitHub integration, support for Codecov coverage integration. Uses deps.edn, Eftest, Humane Test Output, Expectations, Cloverage and test.check.
