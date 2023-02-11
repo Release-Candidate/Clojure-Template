@@ -45,3 +45,4 @@ fabric.properties
 .clj-kondo/.cache/
 .calva/
 .eastwood
+test.xml

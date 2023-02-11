@@ -11,7 +11,15 @@
                                 pjstadig/humane-test-output {:mvn/version "0.11.0"}
                                 expectations/clojure-test   {:mvn/version "1.2.1"}}
                   :exec-fn clojure-template.runner/-main
-                  :exec-args {}}
+                  :exec-args {:in-ci? false}}
+           :test-gh {:extra-paths ["test"]
+                     :extra-deps  {org.clojure/clojure {:mvn/version "1.11.1"}
+                                   org.clojure/test.check      {:mvn/version "1.1.1"}
+                                   eftest/eftest               {:mvn/version "0.6.0"}
+                                   pjstadig/humane-test-output {:mvn/version "0.11.0"}
+                                   expectations/clojure-test   {:mvn/version "1.2.1"}}
+                     :exec-fn clojure-template.runner/-main
+                     :exec-args {:in-ci? true}}
            :coverage {:extra-paths ["test"]
                       :extra-deps  {org.clojure/clojure {:mvn/version "1.11.1"}
                                     org.clojure/test.check      {:mvn/version "1.1.1"}
