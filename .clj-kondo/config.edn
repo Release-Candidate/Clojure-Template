@@ -10,8 +10,11 @@
   :warn-on-reflection                    {:level :warning}
   :unused-value                          {:level :warning}
   :docstring-leading-trailing-whitespace {:level :warning}}
- 
+
  :lint-as
  {expectations.clojure.test/defexpect clojure.test/deftest
   expectations.clojure.test/from-each clojure.core/for
-  expectations.clojure.test/more-of   clj-kondo.lint-as/def-catch-all}}
+  expectations.clojure.test/more-of   clj-kondo.lint-as/def-catch-all
+  clojure.test.check.clojure-test/defspec clojure.test/deftest
+  clojure.test.check.properties/for-all clojure.core/let
+  clojure-template.core-test2/tc->expect clojure.test/deftest}}

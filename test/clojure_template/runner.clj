@@ -23,6 +23,11 @@
   [{in-ci? :in-ci?}]
   (let  [{num-fail :fail  num-error :error}
          (if in-ci?
-           (ef/run-tests (ef/find-tests "./") {:report (efr/report-to-file efju/report "test.xml")})
-           (ef/run-tests (ef/find-tests "./")))]
+           (ef/run-tests (ef/find-tests "./test") {:report (efr/report-to-file efju/report "test.xml")})
+           (ef/run-tests (ef/find-tests "./test")))]
     (System/exit (+ num-error num-fail))))
+
+(comment
+  ;; Run the tests. WARNING: exits from the REPL, it has to be jacked in again.
+  (-main {:in-ci false})
+  :rcf)

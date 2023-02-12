@@ -7,11 +7,25 @@
 ;;
 ;; ==============================================================================
 
-(ns clojure-template.core)
+(ns clojure-template.core
+  (:require [clojure.spec.alpha :as s])
+  (:gen-class))
 
-(defn hugo
-  "Test doc."
+(defn foo
+  "Return `x + 6`."
   [x]
+  {:pre [(s/valid? number? x)]
+   :post [(s/valid? number? %)]}
   (+ x 6))
 
-(hugo 5)
+(defn -main
+  "The program's main entry point."
+  [& _]
+  (println (foo 9)))
+
+(comment
+
+  (foo 5.0)
+  #_(foo "bar")
+
+  :rcf)

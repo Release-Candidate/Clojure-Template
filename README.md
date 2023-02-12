@@ -13,12 +13,16 @@ See file [CHANGELOG.md](CHANGELOG.md)
 
 ## Build Targets
 
+- Run the program: `clojure -X:run`
 - Run linter clj-kondo: `clojure -M:clj-kondo`
 - Run linter Eastwood: `clojure -M:eastwood`
 - Run tests: `clojure -X:test`
 - Run tests with JUnit output: `clojure -X:test-gh` (file `./test.xml`)
 - Generate coverage report: `clojure -X:coverage` (file `./target/coverage/lcov.info`)
 - Generate Codecov coverage report: `clojure -X:codecov` (file `./target/coverage/codecov.json`)
+- Build/generate an überjar: `clojure -T:build uber` (run with `java -jar ./target/clojure-template-VERSION-standalone.jar`)
+- Clean the build/remove the directory `target`: `clojure -T:build clean`
+- Generate file containing the latest changelog of file `./CHANGELOG.md`, comparing the version with the given version: `clojure -X:parse-changelog '{:version "1.2.3"}'` (file `./first_changelog.md`)
 
 ## License
 

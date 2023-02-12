@@ -2,21 +2,25 @@
 # Copyright (C) 2023 Roland Csaszar
 #
 # Project:  Clojure-Template
-# File:     lint.yml
+# File:     release.yml
 # Date:     12.Feb.2023
 #
 # ==============================================================================
-
-name: Lint
+name: Release
 
 on:
+  release:
+    types: [created]
+
   push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
+    tags:
+      - "v*.*.*"
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
-  clj-kondo:
+  uberjar:
     strategy:
       matrix:
         os: [ubuntu-latest]
@@ -29,25 +33,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Lint clj-Kondo
-        uses: DeLaGuardo/clojure-lint-action@master
+      - name: Get Tag
+        uses: olegtarasov/get-tag@v2.1
+        id: tagName
         with:
-          clj-kondo-args: --lint src test
-          check-name: clj-kondo Result
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
-  eastwood:
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        java: ["17"]
-        clojure: ["1.11.1.1165"]
-
-    runs-on: ${{ matrix.os }}
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+          tagRegex: "v(.*)"
 
       - name: Setup java
         uses: actions/setup-java@v3
@@ -72,5 +62,24 @@ jobs:
           key: cljdeps-${{ hashFiles('deps.edn') }}
           restore-keys: cljdeps-
 
-      - name: Lint
-        run: clojure -M:eastwood
+      - name: Generate Changelog
+        run: clojure -X:parse-changelog '{:version "${{ env.GIT_TAG_NAME }}"}'
+
+      - name: Build überjar
+        run: clojure -T:build uber
+
+      - name: Release to GitHub
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          name: Version ${{ env.GIT_TAG_NAME }}
+          body_path: first_changelog.md
+          files: ./target/*.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: CLOJURE-TEMPLATE überjar
+          path: ./target/*.jar

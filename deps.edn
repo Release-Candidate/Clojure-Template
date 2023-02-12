@@ -45,4 +45,12 @@
                                    :src-ns-path  ["src"]
                                    :codecov?     true
                                    :runner       :eftest
-                                   :runner-opts  {:fail-fast? false}}}}}
+                                   :runner-opts  {:fail-fast? false}}}
+           :run {:exec-fn clojure-template.core/-main}
+           :parse-changelog {:extra-paths ["."]
+                             :exec-fn  parse-changelog/-main
+                             :exec-args {:in "./CHANGELOG.md"
+                                         :out "./first_changelog.md"}}
+           :build {:deps {io.github.clojure/tools.build {:git/tag "v0.9.3"
+                                                         :git/sha "e537cd1"}}
+                   :ns-default build}}}
