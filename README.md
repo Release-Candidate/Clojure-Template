@@ -2,6 +2,7 @@
 
 [![GitHub](https://img.shields.io/github/license/Release-Candidate/clojure-template)](./LICENSE)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/Release-Candidate/Clojure-Template)](https://github.com/Release-Candidate/Clojure-Template/releases/latest)
+[![Documentation Status](https://readthedocs.org/projects/clojure-template/badge/?version=latest)](https://clojure-template.readthedocs.io/en/latest/?badge=latest)
 [![Lint](https://github.com/Release-Candidate/Clojure-Template/actions/workflows/lint.yml/badge.svg)](https://github.com/Release-Candidate/Clojure-Template/actions/workflows/lint.yml)
 [![Test](https://github.com/Release-Candidate/Clojure-Template/actions/workflows/tests.yml/badge.svg)](https://github.com/Release-Candidate/Clojure-Template/actions/workflows/tests.yml)
 [![Codecov](https://img.shields.io/codecov/c/github/Release-Candidate/clojure-template)](https://app.codecov.io/gh/Release-Candidate/Clojure-Template)
