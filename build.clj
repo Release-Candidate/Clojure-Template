@@ -7,19 +7,26 @@
 ;;
 ;; ==============================================================================
 (ns build
-  (:require
-   [clojure.tools.build.api :as b]))
+  (:require [clojure.string :as str]
+            [clojure.tools.build.api :as b]))
 
 (def prog "The programs namespace." 'clojure-template)
+
 (def version
   "Get the current version from the biggest Git tag that matches `v*`."
-  (format "%s" (first (b/git-process {:dir "."
-                                      :git-command "git"
-                                      :git-args ["tag"
-                                                 "--list"
-                                                 "--sort=-version:refname"
-                                                 "v*"]}))))
-(def class-dir "Doc." "target/classes")
+  (format "%s"  (first (str/split
+                        (b/git-process {:dir "."
+                                        :git-command "git"
+                                        :git-args ["tag"
+                                                   "--list"
+                                                   "--sort=-version:refname"
+                                                   "v*"]})
+                        #"\n"))))
+
+
+(def class-dir
+  "Java classes are saved in this directory."
+  "target/classes")
 
 (def basis
   "Read deps.edn for dependencies."
@@ -51,3 +58,11 @@
            :uber-file uber-file
            :basis basis
            :main 'clojure-template.core}))
+
+(defn doc
+  "Generate ReadTheDocs documentation."
+  [_]
+  (b/process {:dir "."
+              :command-args ["pipenv" "install" "--dev"]})
+  (b/process {:dir "."
+              :command-args ["pipenv" "run" "mkdocs" "serve"]}))

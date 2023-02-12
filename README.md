@@ -23,6 +23,7 @@ See file [CHANGELOG.md](CHANGELOG.md)
 - Run linter Eastwood: `clojure -M:eastwood`
 - Run tests: `clojure -X:test`
 - Run tests with JUnit output: `clojure -X:test-gh` (file `./test.xml`)
+- Generate documentation using Mkdocs: `clojure -T:build doc`
 - Generate coverage report: `clojure -X:coverage` (file `./target/coverage/lcov.info`)
 - Generate Codecov coverage report: `clojure -X:codecov` (file `./target/coverage/codecov.json`)
 - Build/generate an überjar: `clojure -T:build uber` (run with `java -jar ./target/clojure-template-VERSION-standalone.jar`)
