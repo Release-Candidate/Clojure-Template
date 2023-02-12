@@ -31,6 +31,10 @@ See file [CHANGELOG.md](CHANGELOG.md)
 - Clean the build/remove the directory `target`: `clojure -T:build clean`
 - Generate file containing the latest changelog of file `./CHANGELOG.md`, comparing the version with the given version: `clojure -X:parse-changelog '{:version "1.2.3"}'` (file `./first_changelog.md`)
 
+## Detailed Information
+
+See documentation at [Read the Docs](https://clojure-template.readthedocs.io/en/latest/contributing/)
+
 ## License
 
 CLOJURE-TEMPLATE is licensed under the MIT license, see file [LICENSE](LICENSE)
