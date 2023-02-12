@@ -2,7 +2,7 @@
 ;; Copyright (C) 2023 Roland Csaszar
 ;;
 ;; Project:  Clojure-Template
-;; File:     core_test.clj
+;; File:     core_test2.clj
 ;; Date:     11.Feb.2023
 ;;
 ;; ==============================================================================

@@ -7,6 +7,10 @@
 
 A template for Clojure projects with GitHub integration, support for Codecov coverage integration. Uses deps.edn, Eftest, Humane Test Output, Expectations, Cloverage and test.check.
 
+## Changes
+
+See file [CHANGELOG.md](CHANGELOG.md)
+
 ## Build Targets
 
 - Run linter clj-kondo: `clojure -M:clj-kondo`

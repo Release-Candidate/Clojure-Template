@@ -1,3 +1,12 @@
+;; SPDX-License-Identifier: MIT
+;; Copyright (C) 2023 Roland Csaszar
+;;
+;; Project:  Clojure-Template
+;; File:     runner.clj
+;; Date:     11.Feb.2023
+;;
+;; ==============================================================================
+
 (ns clojure-template.runner
   (:require
    [eftest.report :as efr]
@@ -8,7 +17,9 @@
 
 (defn -main
   "Main entry point.
-   Run the eftest test runner and return the number of failed tests."
+   Run the eftest test runner and return the number of failed tests.
+   If the command line argument `in-ci?` is `true`, write the output to the file
+   'test.xml' in JUnit format."
   [{in-ci? :in-ci?}]
   (let  [{num-fail :fail  num-error :error}
          (if in-ci?
