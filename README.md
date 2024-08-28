@@ -1,5 +1,8 @@
 # CLOJURE-TEMPLATE
 
+> [!WARNING]
+> This repository has been moved to [Codeberg: Clojure-Template](https://codeberg.org/Release-Candidate/Clojure-Template)
+
 [![GitHub](https://img.shields.io/github/license/Release-Candidate/clojure-template)](./LICENSE)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/Release-Candidate/Clojure-Template)](https://github.com/Release-Candidate/Clojure-Template/releases/latest)
 [![Documentation Status](https://readthedocs.org/projects/clojure-template/badge/?version=latest)](https://clojure-template.readthedocs.io/en/latest/?badge=latest)
